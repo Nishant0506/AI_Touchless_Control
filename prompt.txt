@@ -1,0 +1,89 @@
+You are a senior full-stack AI software engineer. Build a COMPLETE production-ready project called:
+
+“AI Touchless Computer Control System”
+
+Requirements:
+
+1. The project allows users to control their computer using:
+   - Hand gestures (virtual mouse) via webcam
+   - Voice commands via microphone
+   - A professional web dashboard UI
+
+2. Features:
+
+✋ GESTURE CONTROL
+- Use OpenCV + MediaPipe
+- Access webcam, detect hand landmarks
+- Move mouse cursor with index finger
+- Left click when thumb & index pinch
+- Smooth cursor movement
+- Show camera feed window
+
+🎙 VOICE CONTROL
+- Use SpeechRecognition + PyAudio
+- Continuously listen via microphone
+- Recognize commands:
+  - “open chrome” → opens Google Chrome
+  - “open vs code” → opens VS Code
+  - “take screenshot” → saves screenshot
+  - “scroll up” → scrolls up
+  - “scroll down” → scrolls down
+  - “stop system” → stops gesture + voice modules safely
+- Show recognized text live in the dashboard
+
+🌐 WEB DASHBOARD
+- Light-colored modern UI
+- Glassmorphism cards
+- Start / Stop System buttons
+- Status indicators: Camera, Gesture, Listening
+- Live activity log panel
+- Fully responsive
+- Embedded camera feed
+- Show recognized voice command text in real-time
+
+⚙️ BACKEND
+- Python Flask backend
+- REST APIs: /start-system, /stop-system, /status
+- Run gesture & voice modules in parallel threads
+- Send live updates to frontend
+
+📁 PROJECT STRUCTURE
+- backend/
+   - main.py
+   - gesture_control.py
+   - voice_control.py
+   - utils.py
+- frontend/
+   - templates/index.html
+   - static/style.css
+   - static/script.js
+   - static/animations.css
+- setup.py (installs all dependencies automatically)
+- requirements.txt
+- README.md
+
+📦 DEPENDENCIES
+- opencv-python
+- mediapipe
+- pyautogui
+- SpeechRecognition
+- pyaudio
+- flask
+- numpy
+- Pillow
+
+⚡ ENGINEERING RULES
+- Beginner-friendly code with comments
+- Proper error handling
+- Modular architecture
+- Optimized performance
+- Real-time updates for gestures and voice
+- Fully functional in VS Code
+- Include setup.py to install all dependencies automatically
+- All operations (gestures, voice commands including screenshot, scrolling, stop system) must work in real-time
+
+🎯 FINAL OUTPUT
+- Generate ALL project files with complete working code
+- Include proper UI, backend, AI modules, and setup script
+- Do NOT give explanations
+- The project must be ready-to-run from start to finish with a single `python setup.py` followed by `python backend/main.py`

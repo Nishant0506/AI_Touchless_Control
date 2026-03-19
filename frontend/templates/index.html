@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Touchless Computer Control System</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="/static/animations.css">
+</head>
+<body>
+    <div class="container">
+        <h1>AI Touchless Computer Control System</h1>
+        
+        <div class="card control-panel">
+            <h2>System Control</h2>
+            <button id="start-btn" class="btn btn-start">Start System</button>
+            <button id="stop-btn" class="btn btn-stop">Stop System</button>
+        </div>
+        
+        <div class="status-indicators">
+            <div class="indicator" id="camera-indicator">
+                <span class="status-dot" id="camera-dot"></span>
+                Camera
+            </div>
+            <div class="indicator" id="gesture-indicator">
+                <span class="status-dot" id="gesture-dot"></span>
+                Gesture Control
+            </div>
+            <div class="indicator" id="listening-indicator">
+                <span class="status-dot" id="listening-dot"></span>
+                Voice Listening
+            </div>
+        </div>
+        
+        <div class="card camera-card">
+            <h2>Live Camera Feed</h2>
+            <img id="camera-feed" src="" alt="Camera Feed" class="camera-image">
+        </div>
+        
+        <div class="card voice-card">
+            <h2>Voice Command Recognition</h2>
+            <p id="voice-text" class="voice-display">Listening for commands...</p>
+        </div>
+        
+        <div class="card log-card">
+            <h2>Activity Log</h2>
+            <ul id="activity-log" class="log-list"></ul>
+        </div>
+    </div>
+    
+    <script src="/static/script.js"></script>
+</body>
+</html>
