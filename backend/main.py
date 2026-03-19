@@ -15,13 +15,14 @@ def index():
 
 @app.route('/start-system', methods=['POST'])
 def start_system():
+    # In cloud environment, only start voice control (no camera/gesture)
     if not state.running:
         state.running = True
-        gesture_thread = threading.Thread(target=start_gesture, args=(state,))
+        # Only start voice thread in cloud
         voice_thread = threading.Thread(target=start_voice, args=(state,))
-        gesture_thread.start()
         voice_thread.start()
-    return jsonify({'status': 'started'})
+        state.log.append("Voice control started (cloud mode)")
+    return jsonify({'status': 'started', 'mode': 'voice_only'})
 
 @app.route('/stop-system', methods=['POST'])
 def stop_system():
@@ -32,16 +33,18 @@ def stop_system():
 @app.route('/status')
 def get_status():
     return jsonify({
-        'running': state.running,
-        'camera': state.camera_ok,
-        'gesture': state.running,
+        'running':False,  # Camera not available in cloud
+        'gesture': False,  # Gesture control not available in cloud
+        'listening': state.listening,
+        'mode': 'cloud'
         'listening': state.listening
     })
 
 @app.route('/camera_feed')
 def camera_feed():
     try:
-        return jsonify({'frame': state.camera_frame or ''})
+        # For cloud deployment, return placeholder since camera access is not available
+        return jsonify({'frame': '', 'message': 'Camera not available in cloud environment'})
     except Exception as e:
         return jsonify({'frame': '', 'error': str(e)})
 

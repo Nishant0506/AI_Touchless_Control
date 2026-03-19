@@ -61,23 +61,11 @@ document.addEventListener('DOMContentLoaded', function() {
     
     // Function to update camera feed
     function updateCameraFeed() {
-        fetch('/camera_feed')
-        .then(response => response.json())
-        .then(data => {
-            if (data.frame && data.frame.length > 0) {
-                cameraFeed.src = 'data:image/jpeg;base64,' + data.frame;
-                cameraFeed.classList.remove('loading');
-                cameraFeed.style.display = 'block';
-            } else {
-                cameraFeed.classList.add('loading');
-                cameraFeed.style.display = 'none';
-            }
-        })
-        .catch(error => {
-            console.error('Error fetching camera feed:', error);
-            cameraFeed.classList.add('loading');
+        // Camera not available in cloud, skip updates
+        const cameraFeed = document.getElementById('camera-feed');
+        if (cameraFeed) {
             cameraFeed.style.display = 'none';
-        });
+        }
     }
     
     // Function to update voice text

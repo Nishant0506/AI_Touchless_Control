@@ -20,11 +20,11 @@
         <div class="status-indicators">
             <div class="indicator" id="camera-indicator">
                 <span class="status-dot" id="camera-dot"></span>
-                Camera
+                Camera (Cloud: N/A)
             </div>
             <div class="indicator" id="gesture-indicator">
                 <span class="status-dot" id="gesture-dot"></span>
-                Gesture Control
+                Gesture (Cloud: N/A)
             </div>
             <div class="indicator" id="listening-indicator">
                 <span class="status-dot" id="listening-dot"></span>
@@ -34,7 +34,10 @@
         
         <div class="card camera-card">
             <h2>Live Camera Feed</h2>
-            <img id="camera-feed" src="" alt="Camera Feed" class="camera-image">
+            <div class="camera-placeholder">
+                <p>📷 Camera feed not available in cloud environment</p>
+                <p>💡 For full functionality, run locally with webcam access</p>
+            </div>
         </div>
         
         <div class="card voice-card">
