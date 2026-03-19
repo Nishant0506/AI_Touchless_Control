@@ -33,11 +33,11 @@ def stop_system():
 @app.route('/status')
 def get_status():
     return jsonify({
-        'running':False,  # Camera not available in cloud
+        'running': state.running,  # Fixed: was False
+        'camera': False,  # Camera not available in cloud
         'gesture': False,  # Gesture control not available in cloud
         'listening': state.listening,
         'mode': 'cloud'
-        'listening': state.listening
     })
 
 @app.route('/camera_feed')
